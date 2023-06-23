@@ -1,0 +1,28 @@
+:root {
+  --mainFontColor: #0F4C75;
+  --paragraphFontColor: #3282B8;
+  --FooterColor: #BBE1FA;
+  --FotterTextSize: 22px;
+  --paragraphFontSize: 18px;
+  --mainFontSize: 32px;
+  --navbarFontSize:24px;
+  --FormTextSize: 18px;
+}
+
+
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+img {
+  width: 100%;
+}
+ul {
+  list-style-type: none;
+}

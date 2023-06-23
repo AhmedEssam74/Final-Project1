@@ -1,0 +1,224 @@
+/* First Main Section */
+.first-section {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  height: 100vh;
+  background-image: url(../src/components/imags/main-image.jpg);
+  background-position: top;
+  background-size: cover;
+}
+
+.btn_record {
+  --bs-btn-hover-bg: #fff;
+}
+
+/* Main Button  */
+.button-6 {
+  align-items: center;
+  background-color: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: .60rem;
+  box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+  box-sizing: border-box;
+  color: rgba(0, 0, 0, 0.85);
+  cursor: pointer;
+  /* display: inline-flex; */
+  font-family: system-ui, -apple-system, system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 30px;
+  font-weight: bold;
+  /* justify-content: center; */
+  line-height: 1;
+  margin: 40% 10%;
+  min-height: 3rem;
+  padding: calc(.875rem - 1px) calc(1.5rem - 1px);
+  /* position: relative; */
+  text-decoration: none;
+  transition: all 250ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  width: 80%;
+}
+
+.button-6:hover,
+.button-6:focus {
+  border-color: rgba(0, 0, 0, 0.15);
+  box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+  color: var(--mainFontColor);
+}
+
+.button-6:hover {
+  transform: translateY(-1px);
+}
+
+.button-6:active {
+  background-color: #F0F0F1;
+  border-color: rgba(0, 0, 0, 0.15);
+  box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
+  color: rgba(0, 0, 0, 0.65);
+  transform: translateY(0);
+}
+
+/* --------------------------------------------------------- */
+/* Main Title */
+.main__text {
+  font-size: var(--mainFontSize);
+  color: var(--mainFontColor);
+  font-weight: bold;
+}
+
+.main__paragraph {
+  font-size: 22px;
+  font-weight: normal;
+}
+
+
+/* --------------------------------------------------------- */
+/* Cards Section  */
+.row_featuer {
+  display: flex;
+  justify-content: space-around;
+  margin: 80px 0px;
+}
+
+.card_item {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.card_item .card {
+  border: none;
+}
+
+/* --------------------------------------------------------- */
+/* Our Bord Section */
+.bord_Title {
+  font-size: var(--mainFontSize);
+  color: var(--mainFontColor);
+  font-weight: bold;
+}
+
+.board_name {
+  font-size: var(--paragraphFontSize);
+  color: var(--mainFontColor);
+  font-weight: 600;
+}
+
+.board_disc {
+  font-size: var(--paragraphFontSize);
+  color: var(--paragraphFontColor);
+}
+
+/* --------------------------------------------------------- */
+/* Footer */
+.footer {
+  background-color: var(--FooterColor);
+}
+
+.text_font {
+  font-size: var(--FotterTextSize);
+  font-weight: bold;
+}
+
+/* ----------------------------------------------------- */
+/* Redister form */
+.container_Auth {
+  background-image: url(./components/imags/auth-Image.jpg);
+  background-position: center;
+  background-size: cover;
+}
+
+.container_Auth h3 {
+  font-style: italic;
+}
+
+.row_Auth_Register {
+  align-items: center;
+  justify-content: center;
+}
+
+.col_Auth {
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+
+.Auth_btn {
+  width: 100%;
+}
+
+/* ----------------------------------------------------- */
+/* Log in form */
+
+.link_Auth {
+  text-decoration: none;
+  color: gray;
+}
+
+.row_Auth {
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.hidden_btn {
+  background-color: transparent;
+  border: none;
+}
+
+.hidden_btn:hover {
+  background-color: transparent;
+  color: gray;
+}
+
+/* ------------------------------------------------------ */
+/* Recored Page  */
+.icone_record {
+  font-size: 300px;
+}
+
+.user_icone_record {
+  font-size: 45px;
+}
+
+/* -------------------------------------------------------- */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width: 768px) {
+
+  /* Redister form */
+  .row_Auth_Register {
+    height: 100vh;
+  }
+
+}

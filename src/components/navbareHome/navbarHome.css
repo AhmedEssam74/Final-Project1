@@ -1,0 +1,48 @@
+.navbar {
+    border: 1px solid #707070;
+}
+
+.nav-link {
+    font-size: var(--navbarFontSize);
+    color: var(--mainFontColor);
+    font-weight: bold;
+}
+
+.nav_Logo {
+    text-align: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 50px;
+    color: var(--mainFontColor);
+    border: 2px solid #1F2128;
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+}
+
+.user_Logo {
+    background-color: #fff;
+}
+
+.icone {
+    font-size: 20px;
+    padding-right: 10px;
+    color: var(--paragraphFontColor);
+    font-size: var(--FotterTextSize);
+}
+
+.dropdown-item {
+    font-size: var(--paragraphFontSize);
+}
+
+.dropdown_item_user {
+    color: #fff;
+}
+
+.navbar_user {
+    background-color: var(--paragraphFontColor);
+}
+
+.icone_User {
+    color: #fff;
+}

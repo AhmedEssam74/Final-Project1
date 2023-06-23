@@ -1,0 +1,18 @@
+/* User Info Page */
+
+/* User Sidebar */
+.User_Dash_Bord {
+    border: 1px solid #000;
+    border-radius: 30px;
+}
+
+/* User Data */
+.form_Label {
+    font-size: var(--FormTextSize);
+    font-weight: bold;
+}
+.save_btn {
+    font-size: var(--paragraphFontSize);
+    background-color: var(--paragraphFontColor);
+    border-radius: 15px;
+}
