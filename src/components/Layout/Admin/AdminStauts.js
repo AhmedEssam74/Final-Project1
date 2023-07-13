@@ -9,8 +9,8 @@ import 'react-circular-progressbar/dist/styles.css';
 const AdminStauts = () => {
   const [statusUserToday, setStatuseUserToday] = useState('')
   const [statusRecordsToday, setStatuseRecordsToday] = useState('')
-  const percentageUser = statusUserToday.numberOfUsersCreatedToday;
-  const percentageRecord = statusRecordsToday.numberOfRcordsCreatedToday;
+  const percentageUser = statusUserToday.numberOfUsersCreatedToday ?? 0;
+  const percentageRecord = statusRecordsToday.numberOfRcordsCreatedToday ?? 0;
 
 
   const AdminStatus = async () => {

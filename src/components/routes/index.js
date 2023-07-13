@@ -13,6 +13,7 @@ import Error404 from "../pages/Error404";
 import EditHome from "../Layout/Admin/EditHome";
 import AddCard from "../Layout/Admin/AddCard";
 import AdminResult from "../Layout/Admin/AdminResult";
+import EditSection from "../Layout/Admin/EditSection";
 
 export const RootRoutes = [
     {
@@ -71,6 +72,10 @@ export const RootRoutes = [
             {
                 path: 'addcard',
                 element: <AddCard />,
+            },
+            {
+                path: 'editcard/:id',
+                element: <EditSection />,
             },
 
         ]

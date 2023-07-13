@@ -16,11 +16,12 @@ const AddCard = () => {
         e.preventDefault();
         // handleUploadClick()
         console.log(name, image, SectionText);
-        addCard({
-            name,
-            cover_Image: image,
-            SectionText,
-        }).then((res) => {
+        const formData = new FormData();
+        formData.append('name', name);
+        formData.append('cover_Image', image);
+        formData.append('SectionText', SectionText);
+
+        addCard(formData).then((res) => {
             if (res.status === 201 || res.status === 200) {
                 navigate('/admin/editHome')
             }

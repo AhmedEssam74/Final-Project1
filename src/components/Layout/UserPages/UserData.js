@@ -1,27 +1,49 @@
 import { Col, Row } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import { getUserInfo } from '../../services/api';
-import { useEffect, useState } from 'react';
-const UserData = () => {
+import { editUserInfo, getUserInfo } from '../../services/api';
+import { useEffect, useRef } from 'react';
 
-  const [userData, setUserData] = useState({
-    fristName: '',
-    lastName: '',
-    email: '',
-    password: '',
-  });
+const UserData = () => {
+  const fristNameRef = useRef();
+  const lastNameRef = useRef();
+  const emailRef = useRef();
+  const phoneRef = useRef();
+
+
+  const sendUserDataToApi = async () => {
+    const res = await editUserInfo(
+      {
+        "Fristname": fristNameRef.current.value || "",
+        "Lastname": lastNameRef.current.value || "",
+        "Email": emailRef.current.value || "",
+        "Phone": phoneRef.current.value || ""
+      }
+    )
+    console.log(res);
+    console.log({
+      first_name: fristNameRef.current.value,
+      last_name: lastNameRef.current.value,
+      email: emailRef.current.value,
+      phone: phoneRef.current.value,
+    })
+  }
 
   const handleSubmit = (event) => {
     event.preventDefault();
     // do something with the user data
+    sendUserDataToApi()
   };
 
 
   const UserInfo = async () => {
     try {
       const res = await getUserInfo();
-      setUserData(res.data.response);
+      // setUserData(res.data.response);
+      fristNameRef.current.value = res.data.response.fristName
+      lastNameRef.current.value = res.data.response.lastName
+      emailRef.current.value = res.data.response.email
+      phoneRef.current.value = res.data.response.phone
     } catch (error) {
       console.log("error", error);
     }
@@ -41,15 +63,7 @@ const UserData = () => {
               <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label className="ps-1 form_Label">First Name</Form.Label>
                 <Form.Control className="mb-3 rounded-4" type="text" placeholder="first name"
-                  value={userData.fristName}
-                  onChange={(e) => {
-                    const { name, value } = e.target;
-                    setUserData((prevUserData) => ({
-                      ...prevUserData,
-                      [name]: value,
-                    }));
-                  }
-                  }
+                  ref={fristNameRef}
                 />
               </Form.Group>
             </Col>
@@ -57,14 +71,7 @@ const UserData = () => {
               <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label className="ps-1 form_Label">Last Name</Form.Label>
                 <Form.Control className='rounded-4' type="text" placeholder="last name"
-                  value={userData.lastName}
-                  onChange={(e) => {
-                    const { name, value } = e.target;
-                    setUserData((prevUserData) => ({
-                      ...prevUserData,
-                      [name]: value,
-                    }));
-                  }}
+                  ref={lastNameRef}
                 />
               </Form.Group>
             </Col>
@@ -72,27 +79,13 @@ const UserData = () => {
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label className="ps-1 form_Label">E-mail</Form.Label>
             <Form.Control className='rounded-4' type="email" placeholder="Enter email"
-              value={userData.email}
-              onChange={(e) => {
-                const { name, value } = e.target;
-                setUserData((prevUserData) => ({
-                  ...prevUserData,
-                  [name]: value,
-                }))
-              }}
+              ref={emailRef}
             />
           </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicPassword">
             <Form.Label className="ps-1 form_Label">Phone</Form.Label>
             <Form.Control className='rounded-4' type="text" placeholder="phone"
-              value={userData.phone}
-              onChange={(e) => {
-                const { name, value } = e.target;
-                setUserData((prevUserData) => ({
-                  ...prevUserData,
-                  [name]: value,
-                }))
-              }}
+              ref={phoneRef}
             />
           </Form.Group>
           <Form.Group className="d-f justify-content-end" >
