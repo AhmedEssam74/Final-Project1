@@ -12,14 +12,12 @@ const UserData = () => {
 
 
   const sendUserDataToApi = async () => {
-    const res = await editUserInfo(
-      {
-        "Fristname": fristNameRef.current.value || "",
-        "Lastname": lastNameRef.current.value || "",
-        "Email": emailRef.current.value || "",
-        "Phone": phoneRef.current.value || ""
-      }
-    )
+    const formData = new FormData();
+    formData.append('fristname', fristNameRef.current.value);
+    formData.append('lastname', lastNameRef.current.value);
+    formData.append('email', emailRef.current.value);
+    formData.append('phone', phoneRef.current.value);
+    const res = await editUserInfo(formData)
     console.log(res);
     console.log({
       first_name: fristNameRef.current.value,
