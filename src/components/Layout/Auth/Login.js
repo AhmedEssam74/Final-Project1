@@ -4,7 +4,7 @@ import Form from 'react-bootstrap/Form';
 import '../../../App.css';
 import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
-import { userLogin } from '../../services/api';
+import { refreshToken, userLogin } from '../../services/api';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-regular-svg-icons';
 
@@ -12,7 +12,6 @@ const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('')
     const [showPassword, setShowPassword] = useState(false);
-
     const navigat = useNavigate()
 
     function handleTogglePassword() {
@@ -22,6 +21,11 @@ const Login = () => {
     function validateEmail(email) {
         const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         return regex.test(email);
+    }
+
+    const CallRefresh = async () => {
+        const res = await refreshToken()
+        console.log(res);
     }
 
 
@@ -35,11 +39,11 @@ const Login = () => {
                     Password: password,
                 }
             );
-            if (res.role === "User" && ((res.status === 200 || res.status === 201) && res.statusText === "OK")) {
-                // console.log(res);
+            if (res.data.response.role === "User" && (res.data.status === true)) {
                 navigat('/home')
+                setInterval(CallRefresh, 900000)
             } else {
-                navigat('/admin')
+                navigat('/admin/dashboard')
             }
         } catch (error) {
             console.log(error, 'Error');
@@ -94,7 +98,6 @@ const Login = () => {
                             </Form.Group>
                         </Form>
                         <p className='text-center my-3'>Don't have an account? <Link to={'/register'} style={{ textDecoration: 'none' }} >Sign up</Link> </p>
-
                     </Col>
                 </Row>
             </Container>

@@ -42,7 +42,7 @@ const UserDashbord = () => {
         </li>
         <hr />
         <li>
-          <h5 className='text-center'><Link to="/userLastResult" className="text-decoration-none" style={{ color: 'black' }} >Last Result</Link> </h5 >
+          <h5 className='text-center'><Link to="/userLastResult" className="text-decoration-none" style={{ color: 'black' }} >Result</Link> </h5 >
         </li>
       </ul>
     </Col>

@@ -1,17 +1,16 @@
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useState } from 'react'
 import { Button, Col, Row } from 'react-bootstrap'
-import { deleteresult, getResult } from '../../services/api'
 import { FaFilePdf } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrash } from '@fortawesome/free-solid-svg-icons';
-import Rateing from './rateing';
+import { adminResult, deleteresult, getResult } from '../../services/api';
 
-const UserResult = () => {
+const AdminResult = () => {
     const [results, setResult] = useState([]);
 
     const getResultData = async () => {
-        const res = await getResult();
+        const res = await adminResult();
         setResult(res.data.response)
         // console.log(res.data.response);
     }
@@ -35,24 +34,23 @@ const UserResult = () => {
 
     const renderResult = results.map((result) => (
         <>
-            <Row className='justify-content-between overflow-hidden' key={result.id} >
+            <Row className='justify-content-between overflow-hidden p-4 pb-0 pt-0' key={result.id} >
                 <Col lg='3' md='3' sm='3' >
                     <h6>
                         {result.name}
                     </h6>
                 </Col>
                 <Col className='d-flex ustify-content-center' lg='2' md='2' sm='2'>
-                    {/* <h6>
+                    <h6>
                         {result.rate}
-                    </h6> */}
-                    <Rateing value={3} />
+                    </h6>
                 </Col>
                 <Col lg='2' md='2' sm='2'>
                     <h6>
                         {result.createdAt}
                     </h6>
                 </Col>
-                <Col lg='2' md='2' sm='2' className='d-flex justify-content-start'>
+                <Col lg='2' md='2' sm='2'>
                     <h6>
                         <Link to={result.pdfUrl} style={{ textDecoration: 'none' }} >
                             <FaFilePdf />
@@ -66,41 +64,41 @@ const UserResult = () => {
                     </Button>
                 </Col>
             </Row >
-            <hr className='mt-3' />
+            <hr />
         </>
     ))
-
     return (
-        <>
-            <Col lg='8' md='8' sm='12' className='User_Dash_Bord mb-4 '>
-                <Row className='p-3 mt-4'>
-                    <Row className='d-flex justify-content-between mb-2'>
-                        <Col lg='3' md='3' sm='12'>
-                            <h6>File Name</h6>
-                        </Col>
-                        <Col lg='2' md='2' sm='12'>
-                            <h6>Rate</h6>
-                        </Col>
-                        <Col lg='2' md='2' sm='12'>
-                            <h6>Date</h6>
-                        </Col>
-                        <Col lg='2' md='2' sm='12'>
-                            <h6>
-                                View
-                            </h6>
-                        </Col>
-                        <Col lg='2' md='2' sm='12'>
-                            <h6>
-                                Action
-                            </h6>
-                        </Col>
-                    </Row>
-                    <hr />
-                    {renderResult}
+        <Row className='m-1 pt-3 d-flex justify-content-center'>
+            <h5 className='mb-3'>
+                Rates
+            </h5>
+            <Col lg='12' md='12' sm='12' className='users_Blok'>
+                <Row className='d-flex justify-content-between flex-wrap p-4 pb-0'>
+                    <Col lg='3' md='3' sm='12'>
+                        <h6>File Name</h6>
+                    </Col>
+                    <Col lg='2' md='2' sm='12'>
+                        <h6>Rate</h6>
+                    </Col>
+                    <Col lg='2' md='2' sm='12'>
+                        <h6>Date</h6>
+                    </Col>
+                    <Col lg='2' md='2' sm='12'>
+                        <h6>
+                            View
+                        </h6>
+                    </Col>
+                    <Col lg='2' md='2' sm='12'>
+                        <h6>
+                            Action
+                        </h6>
+                    </Col>
                 </Row>
+                <hr />
+                {renderResult}
             </Col>
-        </>
+        </Row>
     )
 }
 
-export default UserResult
+export default AdminResult

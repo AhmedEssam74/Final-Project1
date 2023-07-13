@@ -20,6 +20,7 @@ const Cards = () => {
             </Card>
         </Col>
     ))
+    
 
 
     const getAll = async () => {

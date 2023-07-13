@@ -1,6 +1,8 @@
-.navbar {
-    border: 1px solid #707070;
-}
+/* .navbar {
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+} */
 
 .nav-link {
     font-size: var(--navbarFontSize);
@@ -9,12 +11,6 @@
 }
 
 .nav_Logo {
-    text-align: center;
-    justify-content: center;
-    font-weight: bold;
-    font-size: 50px;
-    color: var(--mainFontColor);
-    border: 2px solid #1F2128;
     height: 80px;
     width: 80px;
     border-radius: 50%;

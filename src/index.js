@@ -8,6 +8,7 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import { RootRoutes } from './components/routes';
 import 'bootstrap/dist/js/bootstrap.bundle'
 
+
 const router = createBrowserRouter(RootRoutes)
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

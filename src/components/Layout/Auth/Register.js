@@ -4,7 +4,7 @@ import Form from 'react-bootstrap/Form';
 import '../../../App.css';
 import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
-import { userRegister } from '../../services/api';
+import { refreshToken, userRegister } from '../../services/api';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-regular-svg-icons';
 
@@ -21,10 +21,14 @@ function Register() {
 
   function handleTogglePassword() {
     setShowPassword(!showPassword);
-}
+  }
   function validateEmail(email) {
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return regex.test(email);
+  }
+  const CallRefresh = async () => {
+    const res = await refreshToken()
+    console.log(res);
   }
 
   const onSubmithandler = async (e) => {
@@ -41,11 +45,11 @@ function Register() {
           lastname: lastname,
         }
       );
-      if (res.role === "User" && ((res.status === 200 || res.status === 201) && res.statusText === "OK")) {
-        // console.log(res);
+      if (res.data.response.role === "User" && (res.data.status === true)) {
         navigat('/home')
+        setInterval(CallRefresh, 900000)
       } else {
-        navigat('/admin')
+        navigat('/admin/dashboard')
       }
     } catch (error) {
       console.log(error, 'error')

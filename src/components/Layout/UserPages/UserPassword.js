@@ -3,6 +3,7 @@ import { Col, Row } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { updateUserPassword } from '../../services/api';
+import { useNavigate } from 'react-router-dom';
 
 const UserPassword = () => {
     const [currentPassword, setCurrentPassword] = useState('');

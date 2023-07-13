@@ -3,8 +3,9 @@ import { Link, useNavigate } from 'react-router-dom';
 import "../navbareHome/navbarHome.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faRightFromBracket, faUser } from '@fortawesome/free-solid-svg-icons';
-import { Col, Row } from 'react-bootstrap';
+import { Col, Image, Row } from 'react-bootstrap';
 import { getUserInfo, userLogout } from '../services/api';
+import Logo from '../imags/Logo (2).jpg'
 
 
 const Navbar = () => {
@@ -12,9 +13,7 @@ const Navbar = () => {
     const UserLogout = async () => {
         try {
             const res = await userLogout();
-            // console.log(res);
             if ((res.status === 200 || res.status === 201) && res.statusText === "OK") {
-                // console.log(res);
                 navigat('/')
             }
         } catch (error) {
@@ -44,8 +43,8 @@ const Navbar = () => {
     return (
         <nav className="navbar navbar-expand-lg navbar-light ">
             <div className="container-fluid">
-                <Link to="/home" className="nav_Logo">
-                    M
+                <Link to={'/home'} >
+                    <Image src={Logo} className="nav_Logo" />
                 </Link>
                 <button
                     className="navbar-toggler"
@@ -81,10 +80,8 @@ const Navbar = () => {
                             <Col  >
                                 <Link to='/userinfo' class="dropdown-item"><FontAwesomeIcon icon={faUser} className='icone' />{userData.fristName} </Link>
                             </Col>
-                            <Col  >
-                                <Link class="dropdown-item"><FontAwesomeIcon icon={faRightFromBracket} style={{ color: 'red' }} className='icone'
-                                    onClick={() => { UserLogout() }}
-                                />Log out</Link>
+                            <Col onClick={() => { UserLogout() }}  >
+                                <Link class="dropdown-item"><FontAwesomeIcon icon={faRightFromBracket} className='icone' />Log out</Link>
                             </Col>
                         </Row>
                     </div>

@@ -24,13 +24,13 @@ const AdminNavbar = () => {
     return (
         <Container fluid>
             <Row className='mt-4'>
-                <Col lg='6'>
+                <Col lg='6' md='6'>
                     <button className='search' type='submit'>
-                    <FontAwesomeIcon icon={faMagnifyingGlass} className='me-2' style={{ fontSize: '1.3rem', color: '#3282B8' }} />
+                        <FontAwesomeIcon icon={faMagnifyingGlass} className='me-2' style={{ fontSize: '1.3rem', color: '#3282B8' }} />
                     </button>
                     <input type='text' placeholder='Search' className='search_btn' />
                 </Col>
-                <Col lg='6' className='d-flex justify-content-end' >
+                <Col lg='6' md='6' className='d-flex align-items-center justify-content-end' >
                     <Col lg='4'>
                         <Link style={{ color: '#3282B8' }} class="dropdown-item"><FontAwesomeIcon className='pe-2' icon={faRightFromBracket}
                             onClick={() => { UserLogout() }}
