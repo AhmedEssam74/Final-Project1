@@ -81,7 +81,7 @@ const Navbar = () => {
                                 <Link to='/userinfo' class="dropdown-item"><FontAwesomeIcon icon={faUser} className='icone' />{userData.fristName} </Link>
                             </Col>
                             <Col onClick={() => { UserLogout() }}  >
-                                <Link class="dropdown-item"><FontAwesomeIcon icon={faRightFromBracket} className='icone' />Log out</Link>
+                                <button class="dropdown-item"><FontAwesomeIcon icon={faRightFromBracket} className='icone' />Log out</button>
                             </Col>
                         </Row>
                     </div>

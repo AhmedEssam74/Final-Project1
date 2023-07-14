@@ -92,19 +92,19 @@ const AdminSidebar = () => {
                                 </Link>
                             </li>
                             <li>
-                                <Link to={'/admin/editHome'} style={{ textDecoration: 'none' }}>
+                                <button className='dropdown-item dropdown_item_user' to={'/admin/editHome'} style={{ textDecoration: 'none' }}>
                                     <Row className='d-flex align-items-center justify-content-around flex-nowrap hvr-grow'
                                         onClick={() => { UserLogout() }}>
                                         <Col lg='1' md='1' sm='1' >
                                             <FontAwesomeIcon icon={faRightFromBracket} className='icon' />
                                         </Col>
-                                        <Col lg='10' md='10' sm='10' className='d-flex align-items-end'>
+                                        <Col lg='10' md='10' sm='10' className='d-flex align-items-end '>
                                             <h5>
                                                 Log out
                                             </h5>
                                         </Col>
                                     </Row>
-                                </Link>
+                                </button>
                             </li>
                         </ul>
                     </Col>

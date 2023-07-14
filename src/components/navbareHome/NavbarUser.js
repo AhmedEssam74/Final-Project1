@@ -75,7 +75,7 @@ const NavbarUser = () => {
                                 <Link to='/userinfo' class="dropdown-item dropdown_item_user"><FontAwesomeIcon icon={faUser} className='icone icone_User' /> {userData.fristName} </Link>
                             </Col>
                             <Col onClick={() => { UserLogout() }} >
-                                <Link class="dropdown-item dropdown_item_user"><FontAwesomeIcon icon={faRightFromBracket} className='icone icone_User' />Log out</Link>
+                                <button class="dropdown-item dropdown_item_user"><FontAwesomeIcon icon={faRightFromBracket} className='icone icone_User' />Log out</button>
                             </Col>
                         </Row>
                     </div>
