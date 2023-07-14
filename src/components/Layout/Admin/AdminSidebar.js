@@ -8,7 +8,7 @@ import Logo from '../../imags/Logo (2).jpg'
 import { adminLogout } from '../../services/api'
 
 const AdminSidebar = () => {
-    const navigat = useNavigate()
+    const navigat = useNavigate('')
     const UserLogout = async () => {
         try {
             const res = await adminLogout();
@@ -71,7 +71,7 @@ const AdminSidebar = () => {
                                         </Col>
                                         <Col lg='10' md='10' sm='10' className='d-flex align-items-end'>
                                             <h5>
-                                                Rates
+                                                Resalts
                                             </h5>
                                         </Col>
                                     </Row>

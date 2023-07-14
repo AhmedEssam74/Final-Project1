@@ -35,7 +35,6 @@ const UserData = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // do something with the user data
     sendUserDataToApi()
   };
 

@@ -43,7 +43,7 @@ const Login = () => {
                 navigat('/home')
                 setInterval(CallRefresh, 900000)
             } else {
-                navigat('/admin/dashboard')
+                navigat('/admin/stauts')
             }
         } catch (error) {
             console.log(error, 'Error');

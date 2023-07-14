@@ -1,8 +1,8 @@
 import axios from "axios";
 
 // const Bais_Api = 'http://10.10.12.230:5136/api';
-// const Bais_Api = 'http://localhost:5000/api';
-const Bais_Api = 'https://dcmotorproject-001-site1.atempurl.com/api'
+const Bais_Api = 'http://localhost:5000/api';
+// const Bais_Api = 'https://dcmotorproject-001-site1.atempurl.com/api'
 axios.defaults.withCredentials = true;
 
 
@@ -52,6 +52,15 @@ export const deltecard = (id) => {
 // Add Card
 export const addCard = (card) => {
     return axios.post(`${Bais_Api}/Admin/Home`, card)
+}
+// Add Card
+export const editcard = (card) => {
+    return axios.put(`${Bais_Api}/Admin/Home`, card)
+}
+
+//Edit home
+export const getsinglecard = (id) => {
+    return axios.put(`${Bais_Api}/admin/home/${id}`)
 }
 
 // Upload Record

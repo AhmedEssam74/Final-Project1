@@ -319,11 +319,16 @@
 /* -------------------------------------------------------- */
 
 /* @media screen and (max-width:768px) {
-  .loading {
-    height: 50vh;
-  }
+
 } */
 @media screen and (max-width:600px) {
+  /* Get startted btn */
+  .button-6 {
+    font-size: 18px;
+    line-height: .8;
+    margin: 0% 10% 16% 10%;
+  }
+  /* loading icon */
   .loading {
     top: 123px;
     height: 100vh;
