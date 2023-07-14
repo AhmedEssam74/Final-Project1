@@ -62,19 +62,19 @@ const NavbarUser = () => {
                     <span className="navbar-toggler-icon" />
                 </button>
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul className="navbar-nav me-auto mb-2 mb-lg-0 ms-5">
+                    <ul className="navbar-nav me-auto mb-2 mb-lg-0 ms-5">
                         <li className="nav-item">
-                            <Link to="/home" style={{color:'white'}} className="nav-link me-4" aria-current="page" >
+                            <Link to="/home" style={{ color: 'white' }} className="nav-link me-4" aria-current="page" >
                                 Home
                             </Link>
                         </li>
                     </ul>
                     <div className="d-flex justify-content-between">
-                        <Row className='row' onClick={() => { UserLogout() }} >
+                        <Row className='row' >
                             <Col>
                                 <Link to='/userinfo' class="dropdown-item dropdown_item_user"><FontAwesomeIcon icon={faUser} className='icone icone_User' /> {userData.fristName} </Link>
                             </Col>
-                            <Col  >
+                            <Col onClick={() => { UserLogout() }} >
                                 <Link class="dropdown-item dropdown_item_user"><FontAwesomeIcon icon={faRightFromBracket} className='icone icone_User' />Log out</Link>
                             </Col>
                         </Row>

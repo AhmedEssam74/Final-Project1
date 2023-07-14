@@ -3,12 +3,15 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { editUserInfo, getUserInfo } from '../../services/api';
 import { useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const UserData = () => {
   const fristNameRef = useRef();
   const lastNameRef = useRef();
   const emailRef = useRef();
   const phoneRef = useRef();
+  const navigat = useNavigate()
+
 
 
   const sendUserDataToApi = async () => {
@@ -18,13 +21,16 @@ const UserData = () => {
     formData.append('email', emailRef.current.value);
     formData.append('phone', phoneRef.current.value);
     const res = await editUserInfo(formData)
-    console.log(res);
-    console.log({
-      first_name: fristNameRef.current.value,
-      last_name: lastNameRef.current.value,
-      email: emailRef.current.value,
-      phone: phoneRef.current.value,
-    })
+    if ((res.data.status === true)) {
+      navigat('/userinfo')
+      console.log(res);
+      console.log({
+        first_name: fristNameRef.current.value,
+        last_name: lastNameRef.current.value,
+        email: emailRef.current.value,
+        phone: phoneRef.current.value,
+      })
+    }
   }
 
   const handleSubmit = (event) => {

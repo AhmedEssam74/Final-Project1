@@ -46,10 +46,10 @@ const UserPassword = () => {
                             onChange={(e) => setNewPassword(e.target.value)}
                         />
                     </Form.Group>
-                    <Form.Group className="mb-3" controlId="formBasicConfirmPassword">
+                    {/* <Form.Group className="mb-3" controlId="formBasicConfirmPassword">
                         <Form.Label className="ps-1 form_Label">Confirm Password</Form.Label>
                         <Form.Control className='rounded-4' type="text" placeholder="confirm password" />
-                    </Form.Group>
+                    </Form.Group> */}
                     <Form.Group className="d-f justify-content-end" >
                         <Button className='save_btn' type="submit">
                             Save Changes

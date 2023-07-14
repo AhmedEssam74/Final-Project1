@@ -27,9 +27,7 @@ const RecordPage = () => {
 
       const res = await uploadRecord(formData);
       if ((res.status === 200 || res.status === 201) && res.statusText === "OK") {
-        // console.log("res", res);
         setIsLoading(false);
-        // alert('Record detected succefully')
         navigat('/userLastResult')
       }
 
@@ -56,17 +54,6 @@ const RecordPage = () => {
               </div>
             </Col>
           </Row>
-          {/* <Row className='d-flex'>
-            <Col lg={4} md={4} xs={4} className='text-center'>
-              <FontAwesomeIcon className='user_icone_record' icon={faCloudArrowUp} />
-            </Col>
-            <Col lg={4} md={4} xs={4} className='text-center'>
-              <FontAwesomeIcon className='user_icone_record' icon={faCirclePlay} />
-            </Col>
-            <Col lg={4} md={4} xs={4} className='text-center'>
-              <FontAwesomeIcon className='user_icone_record' icon={faTrash} style={{ color: '#ec0909' }} />
-            </Col>
-          </Row> */}
           {isLoading && (
             <div className='loading'>
               <Circles
@@ -88,13 +75,6 @@ const RecordPage = () => {
                 <input className='record_input' id="file-upload" type="file" accept="audio/*" onChange={handleFileChange} />
                 <button className="button-66" type="submit">Upload</button>
               </form>
-              {/* <Form.Group onSubmit={handleRecordSubmit} className='mb-3'>
-                <label htmlFor="file-upload" className="custom-file-upload">
-                  Choose File
-                </label>
-                <input className='image_file' id="file-upload" type="file" onChange={handleFileChange} />
-                <button class="button-29" type="submit">Upload</button>
-              </Form.Group> */}
             </Col>
           </Row>
         </Row>

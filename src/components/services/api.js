@@ -1,8 +1,8 @@
 import axios from "axios";
 
 // const Bais_Api = 'http://10.10.12.230:5136/api';
-// const Bais_Api = 'http://localhost:5000/api';
-const Bais_Api = 'https://dcmotorproject-001-site1.atempurl.com/api'
+const Bais_Api = 'http://localhost:5000/api';
+// const Bais_Api = 'https://dcmotorproject-001-site1.atempurl.com/api'
 axios.defaults.withCredentials = true;
 
 
