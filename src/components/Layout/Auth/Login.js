@@ -92,7 +92,7 @@ const Login = () => {
                             {/* <FormGroup className='py-3 d-flex flex-row-reverse'>
                                 <Link className='link_Auth me-3' to={'/reset-password'} >Forget Password?</Link>
                             </FormGroup> */}
-                            <Form.Group className="d-f text-center" >
+                            <Form.Group className="d-f text-center mt-4" >
                                 <Button className='Auth_btn rounded-4 py-2' type="submit">
                                     Log in
                                 </Button>
