@@ -89,9 +89,9 @@ const Login = () => {
                                     </Button>
                                 </InputGroup>
                             </Form.Group>
-                            <FormGroup className='py-3 d-flex flex-row-reverse'>
+                            {/* <FormGroup className='py-3 d-flex flex-row-reverse'>
                                 <Link className='link_Auth me-3' to={'/reset-password'} >Forget Password?</Link>
-                            </FormGroup>
+                            </FormGroup> */}
                             <Form.Group className="d-f text-center" >
                                 <Button className='Auth_btn rounded-4 py-2' type="submit">
                                     Log in

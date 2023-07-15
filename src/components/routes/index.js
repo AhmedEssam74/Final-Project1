@@ -25,10 +25,10 @@ export const RootRoutes = [
         path: '/register',
         element: <Register />
     },
-    {
-        path: '/reset-password',
-        element: <ResetPassword />
-    },
+    // {
+    //     path: '/reset-password',
+    //     element: <ResetPassword />
+    // },
     {
         path: 'home',
         element: <HomePage />,
