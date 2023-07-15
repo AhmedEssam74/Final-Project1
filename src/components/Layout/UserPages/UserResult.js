@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Button, Col, Row } from 'react-bootstrap'
-import { deleteresult, getResult } from '../../services/api'
+import { deleteresult, getResult, refreshToken } from '../../services/api'
 import { FaFilePdf } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -29,8 +29,14 @@ const UserResult = () => {
         }
     }
 
+    const CallRefresh = async () => {
+        const res = await refreshToken()
+        console.log(res);
+    }
+
     useEffect(() => {
         getResultData()
+        setInterval(CallRefresh, 840000)
     }, [])
 
     const renderResult = results.map((result) => (

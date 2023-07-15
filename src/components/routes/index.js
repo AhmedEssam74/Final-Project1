@@ -74,6 +74,7 @@ export const RootRoutes = [
                 element: <AddCard />,
             },
             {
+                // path: 'home/:id',
                 path: 'editcard/:id',
                 element: <EditSection />,
             },

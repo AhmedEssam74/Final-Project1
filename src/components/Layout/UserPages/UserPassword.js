@@ -1,8 +1,8 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Col, Row } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import { updateUserPassword } from '../../services/api';
+import { refreshToken, updateUserPassword } from '../../services/api';
 import { useNavigate } from 'react-router-dom';
 
 const UserPassword = () => {
@@ -26,6 +26,13 @@ const UserPassword = () => {
             console.log(error, 'error')
         }
     }
+    const CallRefresh = async () => {
+        const res = await refreshToken()
+        console.log(res);
+    }
+    useEffect(() => {
+        setInterval(CallRefresh, 840000)
+    }, [])
 
 
     return (

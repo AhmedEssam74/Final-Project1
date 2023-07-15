@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { Button, Col, Container, Form, Row } from 'react-bootstrap'
 import { useNavigate, useParams } from 'react-router-dom';
-import { editcard, getsinglecard } from '../../services/api';
+import { editcard, getCard, getsinglecard } from '../../services/api';
 
 const EditSection = () => {
     const { id } = useParams();
@@ -34,10 +34,10 @@ const EditSection = () => {
     const cardInfo = async () => {
         try {
             const res = await getsinglecard(id)
-            nameRef.current.value = res.data.response.name
-
+            console.log(res);
+            // nameRef.current.value = res.data.response.name
         } catch (error) {
-
+            console.log(error ,'Error');
         }
 
     }
@@ -45,7 +45,7 @@ const EditSection = () => {
     // const getAll = async () => {
     //     try {
     //         const res = await getCard();
-    //         console.log(res)
+    //         console.log(res.data.response)
     //         nameRef.current.value = res.data.response.name
     //         sectionTextRef.current.value = res.data.response.sectionText
     //         imageRef.current.value = res.data.response.image
@@ -55,6 +55,7 @@ const EditSection = () => {
     // }
 
     useEffect(() => {
+        // getAll()
         console.log('card id:', id);
         cardInfo()
     }, [])

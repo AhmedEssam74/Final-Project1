@@ -14,6 +14,7 @@ const Navbar = () => {
         try {
             const res = await userLogout();
             if ((res.status === 200 || res.status === 201) && res.statusText === "OK") {
+                console.log(res);
                 navigat('/')
             }
         } catch (error) {

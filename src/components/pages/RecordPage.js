@@ -1,9 +1,9 @@
 import { faMicrophone } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Col, Container, Row } from 'react-bootstrap'
 import NavbarUser from '../navbareHome/NavbarUser'
-import { uploadRecord } from '../services/api'
+import { refreshToken, uploadRecord } from '../services/api'
 import { useNavigate } from 'react-router-dom'
 import { Circles } from 'react-loader-spinner'
 
@@ -36,6 +36,13 @@ const RecordPage = () => {
       setIsLoading(false);
     }
   };
+  const CallRefresh = async () => {
+    const res = await refreshToken()
+    console.log(res);
+  }
+  useEffect(() => {
+    setInterval(CallRefresh, 840000)
+  }, [])
 
 
 

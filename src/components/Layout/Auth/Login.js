@@ -41,9 +41,10 @@ const Login = () => {
             );
             if (res.data.response.role === "User" && (res.data.status === true)) {
                 navigat('/home')
-                setInterval(CallRefresh, 900000)
+                setInterval(CallRefresh, 840000)
             } else {
                 navigat('/admin/stauts')
+                setInterval(CallRefresh, 840000)
             }
         } catch (error) {
             console.log(error, 'Error');

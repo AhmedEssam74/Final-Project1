@@ -1,7 +1,7 @@
 import { Col, Row } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import { editUserInfo, getUserInfo } from '../../services/api';
+import { editUserInfo, getUserInfo, refreshToken } from '../../services/api';
 import { useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -42,7 +42,6 @@ const UserData = () => {
   const UserInfo = async () => {
     try {
       const res = await getUserInfo();
-      // setUserData(res.data.response);
       fristNameRef.current.value = res.data.response.fristName
       lastNameRef.current.value = res.data.response.lastName
       emailRef.current.value = res.data.response.email
@@ -51,8 +50,13 @@ const UserData = () => {
       console.log("error", error);
     }
   }
+  const CallRefresh = async () => {
+    const res = await refreshToken()
+    console.log(res);
+  }
   useEffect(() => {
     UserInfo();
+    setInterval(CallRefresh, 840000)
   }, [])
 
 

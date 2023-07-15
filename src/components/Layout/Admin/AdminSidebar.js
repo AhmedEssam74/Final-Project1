@@ -1,11 +1,11 @@
 import { faStar } from '@fortawesome/free-regular-svg-icons'
 import { faPen, faRankingStar, faRightFromBracket, faUserGroup } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Col, Image, Row } from 'react-bootstrap'
 import { Link, useNavigate } from 'react-router-dom'
 import Logo from '../../imags/Logo (2).jpg'
-import { adminLogout } from '../../services/api'
+import { adminLogout, refreshToken } from '../../services/api'
 
 const AdminSidebar = () => {
     const navigat = useNavigate('')
@@ -21,6 +21,13 @@ const AdminSidebar = () => {
             console.log("error", error);
         }
     }
+    const CallRefresh = async () => {
+        const res = await refreshToken()
+        console.log(res);
+    }
+    useEffect(() => {
+        setInterval(CallRefresh, 840000)
+    }, [])
 
     return (
         <Row className='Admin_Sidebar'>

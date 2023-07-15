@@ -41,86 +41,86 @@ const EditHome = () => {
                     <Col lg='3' md='3' sm='3'>
                         <Button>
                             <Link to={`/admin/editcard/${card.id}`}>
-                            <FontAwesomeIcon icon={faPen} />
-                        </Link>
-                    </Button>
-            </Col>
-            <Col lg='3' md='3' sm='3'>
-                <Button onClick={() => { DeletedCard(card.id) }}>
-                    <FontAwesomeIcon icon={faTrashCan} />
-                </Button>
-            </Col>
-        </Row>
+                                <FontAwesomeIcon icon={faPen} style={{color:"#fff"}} />
+                            </Link>
+                        </Button>
+                    </Col>
+                    <Col lg='3' md='3' sm='3'>
+                        <Button onClick={() => { DeletedCard(card.id) }}>
+                            <FontAwesomeIcon icon={faTrashCan} />
+                        </Button>
+                    </Col>
+                </Row>
             </Col >
         </Row >
     ))
-const DeletedCard = async (id) => {
-    try {
-        const res = await deltecard(id).then((res) => {
-            if (res.status === 200 || res.status === 201) {
-                getAll()
-            }
-            console.log(res);
-        })
-    } catch (error) {
-        console.log(error, 'Error');
+    const DeletedCard = async (id) => {
+        try {
+            const res = await deltecard(id).then((res) => {
+                if (res.status === 200 || res.status === 201) {
+                    getAll()
+                }
+                console.log(res);
+            })
+        } catch (error) {
+            console.log(error, 'Error');
+        }
     }
-}
 
-const getAll = async () => {
-    try {
-        const res = await getCard();
-        setCards(res.data.response)
-    } catch {
-        console.error("Erorr")
+    const getAll = async () => {
+        try {
+            const res = await getCard();
+            setCards(res.data.response)
+        } catch {
+            console.error("Erorr")
+        }
     }
-}
 
-useEffect(() => {
-    getAll();
-}, [])
+    useEffect(() => {
+        getAll();
+    }, [])
 
 
-return (
-    <Container>
-        <Row className='pt-4'>
-            <h5 className='mb-3'>
-                Cards List
-            </h5>
-            <Col className='users_Blok'>
-                <Row className='d-flex justify-content-between p-4 pb-0'>
-                    <Col lg='1' md='1' sm='1'>
-                        <h6>
-                            Id
-                        </h6>
-                    </Col>
-                    <Col lg='2' md='2' sm='2'>
-                        <h6>
-                            Image
-                        </h6>
-                    </Col>
-                    <Col lg='2' md='2' sm='2'>
-                        <h6>
-                            Title
-                        </h6>
-                    </Col>
-                    <Col lg='4' md='3' sm='3'>
-                        <h6>
-                            Paragraph
-                        </h6>
-                    </Col>
-                    <Col lg='2' md='2' sm='2'>
-                        <h6>
-                            Actions
-                        </h6>
-                    </Col>
-                </Row>
-                <hr />
-                {renderCards}
-            </Col>
-        </Row>
-    </Container>
-)
+    return (
+        <Container>
+            <Row className='pt-4'>
+                <h5 className='mb-3'>
+                    Cards List
+                </h5>
+                <Col className='users_Blok'>
+                    <Row className='d-flex justify-content-between p-4 pb-0'>
+                        <Col lg='1' md='1' sm='1'>
+                            <h6>
+                                Id
+                            </h6>
+                        </Col>
+                        <Col lg='2' md='2' sm='2'>
+                            <h6>
+                                Image
+                            </h6>
+                        </Col>
+                        <Col lg='2' md='2' sm='2'>
+                            <h6>
+                                Title
+                            </h6>
+                        </Col>
+                        <Col lg='4' md='3' sm='3'>
+                            <h6>
+                                Paragraph
+                            </h6>
+                        </Col>
+                        <Col lg='2' md='2' sm='2'>
+                            <h6>
+                                Actions
+                            </h6>
+                        </Col>
+                    </Row>
+                    <hr />
+                    {renderCards}
+                </Col>
+            </Row>
+        </Container>
+    )
 }
 
 export default EditHome
