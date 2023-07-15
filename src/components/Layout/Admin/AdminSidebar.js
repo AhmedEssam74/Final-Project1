@@ -13,7 +13,7 @@ const AdminSidebar = () => {
         try {
             const res = await adminLogout();
             // console.log(res);
-            if ((res.status === 200 || res.status === 201) && res.statusText === "OK") {
+            if ((res.status === 200 || res.status === 201) ) {
                 console.log(res);
                 navigat('/')
             }
@@ -32,7 +32,7 @@ const AdminSidebar = () => {
     return (
         <Row className='Admin_Sidebar'>
             <Col lg='12' md='12' sm='12' className='admin_logo'>
-                <Link to={'/admin1'} >
+                <Link to={'/home'} >
                     <Image src={Logo} className="nav_Admin_Logo" />
                 </Link>
                 <hr />
