@@ -40,7 +40,7 @@ const EditHome = () => {
                     </Col>
                     <Col lg='3' md='3' sm='3'>
                         <Button>
-                            <Link to={`/admin/editcard/${card.id}`}>
+                            <Link to={`/admin/home/${card.id}`}>
                                 <FontAwesomeIcon icon={faPen} style={{color:"#fff"}} />
                             </Link>
                         </Button>

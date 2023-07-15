@@ -1,28 +1,36 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { Button, Col, Container, Form, Row } from 'react-bootstrap'
 import { useNavigate, useParams } from 'react-router-dom';
-import { editcard, getCard, getsinglecard } from '../../services/api';
+import { editcard, getsinglecard } from '../../services/api';
 
 const EditSection = () => {
     const { id } = useParams();
     const nameRef = useRef()
     const sectionTextRef = useRef()
     const imageRef = useRef()
-    // const navigate = useNavigate()
+    const idRef = useRef()
+    const navigate = useNavigate()
 
     const sendUserDataToApi = async () => {
         const formData = new FormData();
         formData.append('nameRef', nameRef.current.value)
         formData.append('sectionTextRef', sectionTextRef.current.value)
         formData.append('imageRef', imageRef.current.value)
+        formData.append('idRef', idRef.current.value)
         const res = await editcard(formData)
-        console.log(res);
+        console.log({
+            name: nameRef.current.value,
+            sectionText: sectionTextRef.current.value,
+            image: imageRef.current.value,
+            id: idRef.current.value
+        })
         if ((res.data.status === true)) {
-            // navigate('/')
+            navigate('/editHome')
             console.log({
                 name: nameRef.current.value,
                 sectionText: sectionTextRef.current.value,
                 image: imageRef.current.value,
+                id: idRef.current.value
             })
         }
     }
@@ -35,27 +43,18 @@ const EditSection = () => {
         try {
             const res = await getsinglecard(id)
             console.log(res);
-            // nameRef.current.value = res.data.response.name
+            nameRef.current.value = res.data.response.name
+            sectionTextRef.current.value = res.data.response.sectionText
+            // imageRef.current.value = res.data.response.image
+            // idRef.current.value = res.data.response.id
         } catch (error) {
-            console.log(error ,'Error');
+            console.log(error, 'Error');
         }
 
     }
 
-    // const getAll = async () => {
-    //     try {
-    //         const res = await getCard();
-    //         console.log(res.data.response)
-    //         nameRef.current.value = res.data.response.name
-    //         sectionTextRef.current.value = res.data.response.sectionText
-    //         imageRef.current.value = res.data.response.image
-    //     } catch {
-    //         console.error("Erorr")
-    //     }
-    // }
 
     useEffect(() => {
-        // getAll()
         console.log('card id:', id);
         cardInfo()
     }, [])

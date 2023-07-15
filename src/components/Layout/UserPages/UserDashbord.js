@@ -1,5 +1,5 @@
 import { Col } from "react-bootstrap"
-import ImageUser from "../../imags/Image 24.jpg"
+// import ImageUser from "../../imags/Image 24.jpg"
 import { Link } from "react-router-dom"
 import { useEffect, useState } from "react";
 import { getUserInfo } from "../../services/api";
@@ -8,6 +8,7 @@ const UserDashbord = () => {
 
   const [userData, setUserData] = useState({
     fristName: '',
+    imageUrl: ''
   });
 
   const UserInfo = async () => {
@@ -29,7 +30,7 @@ const UserDashbord = () => {
     <Col lg='3' md='3' sm='12' className='User_Dash_Bord mb-4' >
       <ul className='p-2'>
         <li className="p-4">
-          <img className="imageUser" src={ImageUser} alt="ImageUser" />
+          <img className="imageUser" src={userData.imageUrl} alt="ImageUser" />
           <h4 className='text-center pt-3'> {userData.fristName} </h4>
         </li>
         <hr />

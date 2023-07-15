@@ -53,7 +53,7 @@ export const deltecard = (id) => {
 export const addCard = (card) => {
     return axios.post(`${Bais_Api}/Admin/Home`, card)
 }
-// Add Card
+// Edir Card
 export const editcard = (card) => {
     return axios.put(`${Bais_Api}/Admin/Home`, card)
 }
