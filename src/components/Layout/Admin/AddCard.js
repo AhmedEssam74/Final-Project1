@@ -18,7 +18,7 @@ const AddCard = () => {
         console.log(name, image, SectionText);
         const formData = new FormData();
         formData.append('name', name);
-        formData.append('cover_Image', image);
+        formData.append('Image', image);
         formData.append('SectionText', SectionText);
 
         addCard(formData).then((res) => {
