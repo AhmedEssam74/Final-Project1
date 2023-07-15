@@ -26,7 +26,8 @@ const RecordPage = () => {
       setIsLoading(true);
 
       const res = await uploadRecord(formData);
-      if ((res.status === 200 || res.status === 201) && res.statusText === "OK") {
+      if ((res.status === 200 || res.status === 201)) {
+        console.log(res);
         setIsLoading(false);
         navigat('/userLastResult')
       }
