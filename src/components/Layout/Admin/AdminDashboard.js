@@ -11,7 +11,7 @@ const AdminDashboard = () => {
         try {
             const res = await getAllUsers();
             setUsers(res.data.response)
-            // console.log(res.data.response);
+            // console.log(res.data.response.imageUrl);
         } catch (error) {
             console.log(error, 'Error');
         }
@@ -41,9 +41,9 @@ const AdminDashboard = () => {
             </Col>
             <Col lg='3' md='3' sm='3'>
                 <Row>
-                    <Col lg='3' md='3' sm='3'>
-                        <img src={user.imageId} alt='img' style={{ borderRadius: "50%" }}></img>
-                    </Col>
+                    {/* <Col lg='3' md='3' sm='3'>
+                        <img src={user.imageUrl} alt='img' style={{ borderRadius: "50%" }}></img>
+                    </Col> */}
                     <Col lg='9' md='9' sm='9'>
                         <p>
                             {user.fristName}

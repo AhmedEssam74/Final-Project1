@@ -41,7 +41,7 @@ const EditHome = () => {
                     <Col lg='3' md='3' sm='3'>
                         <Button>
                             <Link to={`/admin/home/${card.id}`}>
-                                <FontAwesomeIcon icon={faPen} style={{color:"#fff"}} />
+                                <FontAwesomeIcon icon={faPen} style={{ color: "#fff" }} />
                             </Link>
                         </Button>
                     </Col>
@@ -60,8 +60,8 @@ const EditHome = () => {
                 if (res.status === 200 || res.status === 201) {
                     getAll()
                 }
-                console.log(res);
             })
+            console.log(res);
         } catch (error) {
             console.log(error, 'Error');
         }
