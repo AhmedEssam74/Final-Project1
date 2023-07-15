@@ -13,7 +13,7 @@ const Navbar = () => {
     const UserLogout = async () => {
         try {
             const res = await userLogout();
-            if ((res.status === 200 || res.status === 201) && res.statusText === "OK") {
+            if ((res.status === 200 || res.status === 201)) {
                 console.log(res);
                 navigat('/')
             }
