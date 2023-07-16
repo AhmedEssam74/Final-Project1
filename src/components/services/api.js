@@ -1,8 +1,8 @@
 import axios from "axios";
 
 // const Bais_Api = 'http://10.10.12.230:5136/api';
-// const Bais_Api = 'http://localhost:5000/api';
-const Bais_Api = 'https://dcmotorproject-001-site1.atempurl.com/api'
+const Bais_Api = 'http://localhost:5000/api';
+// const Bais_Api = 'https://dcmotorproject-001-site1.atempurl.com/api'
 axios.defaults.withCredentials = true;
 
 
@@ -73,7 +73,7 @@ export const getResult = () => {
     return axios.get(`${Bais_Api}/result`)
 }
 
-// delete Result
+// User delete Result
 export const deleteresult = (id) => {
     return axios.delete(`${Bais_Api}/result/${id}`)
 }
@@ -104,4 +104,8 @@ export const getStatusData = () => {
 // Admin Result 
 export const adminResult = () => {
     return axios.get(`${Bais_Api}/admin/result`)
+}
+// Admin delete Result
+export const admindeleteresult = (id) => {
+    return axios.delete(`${Bais_Api}/admin/result/${id}`)
 }

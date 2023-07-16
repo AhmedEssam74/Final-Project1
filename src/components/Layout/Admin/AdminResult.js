@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react'
 import { Button, Col, Row } from 'react-bootstrap'
 import { FaFilePdf } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-import { adminResult, deleteresult, getResult } from '../../services/api';
+import { adminResult, admindeleteresult } from '../../services/api';
 
 const AdminResult = () => {
     const [results, setResult] = useState([]);
@@ -17,12 +17,12 @@ const AdminResult = () => {
 
     const DeleteResult = async (id) => {
         try {
-            const res = await deleteresult(id).then((res) => {
+            const res = await admindeleteresult(id).then((res) => {
                 if (res.status === 200 || res.status === 201) {
                     getResultData()
                 }
+                console.log(res);
             })
-            console.log(res);
         } catch (error) {
             console.error('Error', error)
         }
